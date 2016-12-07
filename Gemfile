@@ -31,6 +31,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'carrierwave'
+gem 'cloudinary'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.3.11'
