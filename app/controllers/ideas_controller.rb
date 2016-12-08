@@ -10,6 +10,7 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
+    # FIXME: zbytocna @comments
     @comments = @idea.comments.all
     @comment = @idea.comments.build
   end
@@ -56,6 +57,7 @@ class IdeasController < ApplicationController
   # DELETE /ideas/1
   # DELETE /ideas/1.json
   def destroy
+    # FIXME: error stav
     @idea.destroy
     respond_to do |format|
       format.html { redirect_to ideas_url, notice: 'Idea was successfully destroyed.' }
@@ -66,6 +68,7 @@ class IdeasController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_idea
+      # FIXME: zle zadane id
       @idea = Idea.find(params[:id])
     end
 
