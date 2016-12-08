@@ -32,3 +32,9 @@ notes.rb
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore temporary and backup files
+.#*
+/#*#
+*~
+/#*
