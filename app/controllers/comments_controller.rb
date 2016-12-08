@@ -25,7 +25,8 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @idea = Idea.find(comment_params[:idea_id])
-    @comment = @idea.comments.build(comment_params) # strong pp.
+    @comment = @idea.comments.build(comment_params)
+    @comment.user_id = current_user.id
     if @comment.save
       flash[:success] = 'Comment posted.'
       redirect_to @idea
