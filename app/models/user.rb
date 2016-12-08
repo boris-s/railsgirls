@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  attr_accessor :username
 
   # Vazby na idea a comment + co s nimi po user.destroy
   has_many :ideas, dependent: :destroy
