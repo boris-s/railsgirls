@@ -52,24 +52,30 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
-    # FIXME: 2x find
-    # FIXME: error stav
-    @comment = Comment.find(params[:id])
-    @idea = @comment.idea
-    @comment.destroy
-    flash[:success] = 'Comment deleted.'
-    redirect_to @idea
+    if @comment then
+      @idea = @comment.idea
+      if @comment.destroy then
+        flash[:success] = 'Comment deleted.'
+        redirect_to @idea
+      else
+        flash[:alert] = 'Unable to delete comment!'
+        redirect_to :back
+      end
+    else
+      flash[:alert] = 'Comment not found!'
+      redirect_to :back
+    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      # FIXME: zle zadane id
-      @comment = Comment.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def comment_params
-      params.require(:comment).permit(:user_id, :body, :idea_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_comment
+    @comment = Comment.find_by id: params[:id]
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def comment_params
+    params.require(:comment).permit(:body, :idea_id)
+  end
 end

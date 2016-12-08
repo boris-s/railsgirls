@@ -10,8 +10,6 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
-    # FIXME: zbytocna @comments
-    @comments = @idea.comments.all
     @comment = @idea.comments.build
   end
 
@@ -58,19 +56,26 @@ class IdeasController < ApplicationController
   # DELETE /ideas/1
   # DELETE /ideas/1.json
   def destroy
-    # FIXME: error stav
-    @idea.destroy
-    respond_to do |format|
-      format.html { redirect_to ideas_url, notice: 'Idea was successfully destroyed.' }
-      format.json { head :no_content }
+    if @idea then
+      if @idea.destroy then
+        respond_to do |format|
+          format.html { redirect_to ideas_url, notice: 'Idea was successfully destroyed.' }
+          format.json { head :no_content }
+        end
+      else
+        flash[:alert] = 'Unable to delete idea!'
+        redirect_to :back
+      end
+    else
+      flash[:alert] = 'Idea not found!'
+      redirect_to :back
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_idea
-      # FIXME: zle zadane id
-      @idea = Idea.find(params[:id])
+      @idea = Idea.find_by id: params[:id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
