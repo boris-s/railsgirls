@@ -1,6 +1,6 @@
 <p>
   <strong>User name:</strong>
-  <%= @comment.user_id %>
+  <%= User.find_by_id( @comment.user_id ).name %>
 </p>
 
 <p>
