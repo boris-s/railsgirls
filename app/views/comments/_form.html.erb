@@ -12,15 +12,11 @@
   <% end %>
 
   <%= f.hidden_field :idea_id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
 
   <div class="field">
     <%= f.label :body %>
     <%= f.text_area :body %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id, value: current_user.id %>
   </div>
 
   <div class="actions">
