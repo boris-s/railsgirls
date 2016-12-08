@@ -4,5 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  has_many: comments
+  has_many :comments
+
+  # FIXME: vazby na idea a comment + co s nimi po user.destroy
 end

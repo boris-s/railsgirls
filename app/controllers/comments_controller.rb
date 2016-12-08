@@ -51,6 +51,8 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    # FIXME: 2x find
+    # FIXME: error stav
     @comment = Comment.find(params[:id])
     @idea = @comment.idea
     @comment.destroy
@@ -61,6 +63,7 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
+      # FIXME: zle zadane id
       @comment = Comment.find(params[:id])
     end
 
