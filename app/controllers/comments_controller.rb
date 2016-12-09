@@ -28,8 +28,7 @@ class CommentsController < ApplicationController
     @comment = @idea.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      flash[:success] = 'Comment posted.'
-      redirect_to @idea
+      redirect_to @idea, anchor: 'comments-bottom'
     else
       render @idea
     end
@@ -55,8 +54,7 @@ class CommentsController < ApplicationController
     if @comment then
       @idea = @comment.idea
       if @comment.destroy then
-        flash[:success] = 'Comment deleted.'
-        redirect_to @idea
+        redirect_to @idea, anchor: 'comments-bottom'
       else
         flash[:alert] = 'Unable to delete comment!'
         redirect_to :back

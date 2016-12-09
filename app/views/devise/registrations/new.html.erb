@@ -7,24 +7,14 @@
   
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.input :username, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.input :email %>
-  </div>
-
-  <div class="field">
-    <% hint = if @minimum_password_length then %>
-    <%   pluralize(@minimum_password_length, "character") + ' minimum' %>
-    <% end %>
-    <%= f.input :password, required: true, hint: hint %>
-  </div>
-
-  <div class="field">
-    <%= f.input :password_confirmation %>
-  </div>
+  <%= f.input :username, autofocus: true %>
+  <%= f.input :email %>
+  
+  <% hint = if @minimum_password_length then %>
+  <%   pluralize(@minimum_password_length, "character") + ' minimum' %>
+  <% end %>
+  <%= f.input :password, required: true, hint: hint %>
+  <%= f.input :password_confirmation %>
 
   <div class="actions">
     <%= f.button :submit, "Sign up" %>
