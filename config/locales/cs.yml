@@ -1,0 +1,31 @@
+cs:
+  activerecord:
+    attributes:
+      idea:
+        name: "název"
+        description: "popis"
+        picture: "obrázek"
+        created_at: "vytvořeno"
+        updated_at: "změněno"
+        user_id: "ID uživatele"
+      comment:
+        body: "text"
+        idea_id: "ID nápadu"
+        created_at: "vytvořeno"
+        updated_at: "změněno"
+        user_id: "ID uživatele"
+      users:
+        username: "uživatelská přezdívka"
+  forms:
+    messages:
+      success: "Provedeno!"
+      buttons:
+      submit: "Odeslat"
+  ideas:
+    index:
+      title: "Seznam nápadů"
+    new:
+      title: "Vložit nový nápad"
+  comments:
+    form:
+      body_label: "Vložte komentář k tomuto nápadu"

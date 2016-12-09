@@ -20,4 +20,33 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      idea:
+        name: "name"
+        description: "description"
+        picture: "picture"
+        created_at: "created at"
+        updated_at: "updated at"
+        user_id: "user ID"
+      comment:
+        body: "text"
+        idea_id: "idea ID"
+        created_at: "created at"
+        updated_at: "updated at"
+        user_id: "user ID"
+      users:
+        username: "username"
+  forms:
+    messages:
+      success: "Success!"
+    buttons:
+      submit: "Submit"
+  ideas:
+    index:
+      title: "List of ideas"
+    new:
+      title: "Submit new idea"
+  comments:
+    form:
+      body_label: "Comment on this idea"
